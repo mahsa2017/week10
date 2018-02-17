@@ -13,4 +13,40 @@ function welcomeMentors(arr) {
 }
 welcomeMentors(mentors);
 ///////////////////////////////////////////////////
-
+// this function calculates netIncome based on nationalinsurance and incometax
+var incomeTax = [1000, 580]; // incometaxes
+function netIncomeCalc(salary, incomeTax) {
+    var totalIncomeTax = 0;
+    var studentLoan = (salary - 17775) * 0.09;
+    var netSalary = salary;
+    var nationalInsurance = 0;
+    for (var i = 0; i < incomeTax.length; i++) {
+        totalIncomeTax += incomeTax[i];
+    };
+    nationalInsurance = nationalInsuranceCalc("1150L", salary);
+    var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
+    for (var i = 0; i < deductions.length; i++) {
+        netSalary -= deductions[i];
+    };
+    return (
+        "Your gross income is £" +
+        salary.toString() +
+        " and your net income is £" +
+        netSalary.toString() +
+        "."
+    );
+};
+//function calculates nationalinsurance based on taxcode
+function nationalInsuranceCalc(taxCode, salary) {
+    var nationalInsurance = 0;
+    if (taxCode === "1150L") {
+        nationalInsurance = salary * 0.1;
+    } else if (taxCode === "ST") {
+        nationalInsurance = salary * 0.05;
+    } else {
+        nationalInsurance = salary * 0.08;
+    }
+    return nationalInsurance;
+};
+console.log(netIncomeCalc(28000, incomeTax));
+///////////////////////////////////////////////////
