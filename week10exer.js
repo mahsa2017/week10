@@ -50,3 +50,18 @@ function nationalInsuranceCalc(taxCode, salary) {
 };
 console.log(netIncomeCalc(28000, incomeTax));
 ///////////////////////////////////////////////////
+var mentors = ["Mozafar", "Rares", "Tim", "Ashleigh", "Gordon"];
+var m = "";
+// this function calculate vowels in mentors names
+function getVowels(str) {
+    m = str.match(/[aeiou]/gi);
+};
+for (var i = 0; i < mentors.length; i++) {
+    getVowels(mentors[i]);
+    console.log("Mentor " + mentors[i] + " has " + m.length + " vowels");
+};
+//////////////////////////////////////////////////
+
+
+
+
